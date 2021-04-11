@@ -11,10 +11,10 @@
 public class Demon extends Creature
 {
     // instance variables - replace the example below with your own
-    private static final int MAX_HUMAN_HP = 25;
-    private static final int MIN_HUMAN_HP = 5;
-    private static final int MAX_HUMAN_STR = 20;
-    private static final int MIN_HUMAN_STR = 5;
+    private static final int MAX_DEMON_HP = 100;
+    private static final int MIN_DEMON_HP = 50;
+    private static final int MAX_DEMON_STR = 75;
+    private static final int MIN_DEMON_STR = 25;
 
     /**
      * Constructor for objects of class Demon -
@@ -33,15 +33,27 @@ public class Demon extends Creature
         // max-min is range of values
         // range + min ensures that the values don't start at one.
         super(
-            Randomizer.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP,    
-            Randomizer.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR
+            Randomizer.nextInt(MAX_DEMON_HP-MIN_DEMON_HP)+MIN_DEMON_HP,    
+            Randomizer.nextInt(MAX_DEMON_STR-MIN_DEMON_STR)+MIN_DEMON_STR
         );
           
     }
     
+    public Demon(int str, int hp) 
+    {
+        super(str, hp);
+    }
     
-    // attack() - not overridden because Humans generate basic damage
-    // takeDamage(int) - not overridden, because Humans take all damage assigned to them
-
-    
+    public int attack() 
+    {
+        int tempattack;
+        tempattack = super.attack();
+        
+        if (Randomizer.nextInt(20) == 0) {
+            System.err.println("OVER 9000!");
+            tempattack += 50;
+        }
+        
+        return tempattack;
+    }
 }
