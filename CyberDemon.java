@@ -8,40 +8,16 @@
  * @author Steven Fabian
  * @version 2021/11/04
  */
-public class CyberDemon extends Creature
+public class CyberDemon extends Demon
 {
     // instance variables - replace the example below with your own
-    private static final int MAX_HUMAN_HP = 25;
-    private static final int MIN_HUMAN_HP = 5;
-    private static final int MAX_HUMAN_STR = 20;
-    private static final int MIN_HUMAN_STR = 5;
-
-    /**
-     * Constructor for objects of class CyberDemon -
-     * Note that the calling class does not need to know anything about the 
-     * requirements of human minimum and maximum values
-     * 
-     * The instantiating class asks for a CyberDemon and the human class is responsible for
-     * return a CyberDemon object with values in the appropriate range
-     * 
-     */
+    private static final int MAX_CYBERDEMON_HP = 100;
+    private static final int MIN_CYBERDEMON_HP = 25;
+    private static final int MAX_CYBERDEMON_STR = 40;
+    private static final int MIN_CYBERDEMON_STR = 20;
+    
     public CyberDemon()
     {
-        // note how the class uses the static randomizer class to
-        // generate the values. This localizes the need to know 
-        // max and min values to this class only
-        // max-min is range of values
-        // range + min ensures that the values don't start at one.
-        super(
-            Randomizer.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP,    
-            Randomizer.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR
-        );
-          
+        super();
     }
-    
-    
-    // attack() - not overridden because Humans generate basic damage
-    // takeDamage(int) - not overridden, because Humans take all damage assigned to them
-
-    
 }
