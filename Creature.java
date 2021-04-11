@@ -71,8 +71,7 @@ public abstract class Creature
     public boolean isKnockedOut() {
         return !isAlive();
     }
-    
-    
+        
     /**
      * takeDamage receives a value for the amount of damage to subtract from 
      * the current total of hit points

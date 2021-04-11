@@ -1,5 +1,3 @@
-
-
 /**
  * The Elf class implements a wrapper for the base Creature class with the following additions
  * Implements a maximum/minimum strength for the creature type [20/5]
@@ -11,10 +9,10 @@
 public class Elf extends Creature
 {
     // instance variables - replace the example below with your own
-    private static final int MAX_HUMAN_HP = 25;
-    private static final int MIN_HUMAN_HP = 5;
-    private static final int MAX_HUMAN_STR = 20;
-    private static final int MIN_HUMAN_STR = 5;
+    private static final int MAX_ELF_HP = 25;
+    private static final int MIN_ELF_HP = 8;
+    private static final int MAX_ELF_STR = 18;
+    private static final int MIN_ELF_STR = 5;
 
     /**
      * Constructor for objects of class Elf -
@@ -33,15 +31,22 @@ public class Elf extends Creature
         // max-min is range of values
         // range + min ensures that the values don't start at one.
         super(
-            Randomizer.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP,    
-            Randomizer.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR
+            Randomizer.nextInt(MAX_ELF_HP-MIN_ELF_HP)+MIN_ELF_HP,    
+            Randomizer.nextInt(MAX_ELF_STR-MIN_ELF_STR)+MIN_ELF_STR
         );
           
     }
     
-    
-    // attack() - not overridden because Humans generate basic damage
-    // takeDamage(int) - not overridden, because Humans take all damage assigned to them
-
-    
+    public int attack() 
+    {
+        int tempattack;
+        tempattack = super.attack();
+        
+        if (Randomizer.nextInt(10) == 0) {
+            System.err.println("Wingardium Leviosa! ");
+            tempattack *=2;
+        }
+        
+        return tempattack;        
+    }    
 }
